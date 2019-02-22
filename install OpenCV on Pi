@@ -1,0 +1,10 @@
+//2019/02/22 install OpenCV on Raspberry Pi
+
+//---安裝套件---
+//系統更新及升級
+
+sudo rpi-update
+sudo apt-get update
+sudo apt-get upgrade
+
+//reboot pi
