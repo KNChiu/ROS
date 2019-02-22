@@ -12,7 +12,7 @@
 
 正常安裝 Ubuntu MATE 於 Pi 上
 
-
+//=====================================================================
 //---安裝套件---
 //系統更新及升級
 
@@ -39,11 +39,12 @@ sudo apt-get install libgtk2.0-dev
 sudo apt-get install libatlas-base-dev gfortran
 
 //安裝 Python 2.7 開發工具
-//@可以使用 python-V 指令檢查 Python 版本
 sudo apt-get install python2.7-dev
+//*可以使用 python-V 指令檢查 Python 版本
 
 //以上步驟是為了將之後會用到的相關套件安裝並更新到最新版本
 
+//=====================================================================
 //---下載 OpenCV---
 wget -O opencv-3.2.0.zip  https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.2.0/opencv-3.2.0.zip/download
 //*下載3.2.0版本
@@ -55,10 +56,35 @@ unzip opencv-3.2.0.zip
 //進入解壓縮後的資料夾
 cd opencv-3.2.0/
 
+//=====================================================================
 //---安裝和設定 Python---
 //下載並安裝pip
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
+
+//安裝 virtualenv 及 virtualenvwrapper
+sudo pip install virtualenv virtualenvwrapper
+sudo rm -rf ~/.cache/pip      (?
+
+//更新個人的資料檔 ~/.profile
+//在用戶主目錄下開啟終端機
+ls -a
+//*顯示隱藏的檔案
+
+//編輯.profile檔案
+sudo gedit ~/.profile
+//*使用 gedit 編輯
+
+//將以下三行加到.profile檔案最後面
+# virtualenv and virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+//重新載入個人的 .profile
+source ~/.profile
+
+
+
 
 
 
