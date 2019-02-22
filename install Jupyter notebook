@@ -1,0 +1,10 @@
+//2019/02/22
+//下載並安裝 Jupyter notebook
+
+//---安裝 Jupyter---
+//升级 pip
+sudo pip install --upgrade pip
+
+//使用 pip 安裝
+sudo pip install jupyter
+
