@@ -122,7 +122,7 @@ make -j2
 cd ~/.virtualenvs/cv/lib/python2.7/site-packages/
 
 //將這個檔案建立連結到 cv 的虛擬環境
-ln -s /usr/local/lib/python2.7/site-packages/cv2.so cv2.so
+ln -s /usr/local/lib/python2.7/site-packages/cv2.so cv2.so       (?
 
 //=====================================================================
 //---確認是否已安裝完成---
