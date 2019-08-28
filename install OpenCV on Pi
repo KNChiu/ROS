@@ -1,79 +1,79 @@
-//2019/02/22 install OpenCV on Raspberry Pi
+# 2019/02/22 install OpenCV on Raspberry Pi
 
-//---安裝Ubuntu MATE---
-使用SDFormatter軟體 將SD卡格式化
-//*需注意SD卡容量必續為16G以上
+# ---安裝Ubuntu MATE---
+# 使用SDFormatter軟體 將SD卡格式化
+   ## *需注意SD卡容量必續為16G以上
 
-使用Win32DiskImager 將 Ubuntu MATE 的映像檔燒錄至 SD卡中
-//*如使用舊版本之 Win32DiskImager 映像檔之路徑需完全為英文
+# 使用Win32DiskImager 將 Ubuntu MATE 的映像檔燒錄至 SD卡中
+   ## *如使用舊版本之 Win32DiskImager 映像檔之路徑需完全為英文
 
-插上 HDMI 以及鍵盤滑鼠後就可以將電源線插上
-//*需先插上HDMI插頭才能接上電源，注意電源5V 2A以上為佳
+# 插上 HDMI 以及鍵盤滑鼠後就可以將電源線插上
+   ## *需先插上HDMI插頭才能接上電源，注意電源5V 2A以上為佳
 
-正常安裝 Ubuntu MATE 於 Pi 上
+# 正常安裝 Ubuntu MATE 於 Pi 上
 
-//=====================================================================
-//---安裝套件---
-//系統更新及升級
+# =====================================================================
+# ---安裝套件---
+# 系統更新及升級
 
 sudo rpi-update
 sudo apt-get update
 sudo apt-get upgrade
-//@ reboot pi
+   ## @ reboot pi
 
-//安裝一些需要的編譯工具
-sudo apt-get install build-essential git cmake pkg-config
+# 安裝一些需要的編譯工具
+   sudo apt-get install build-essential git cmake pkg-config
 
-//安裝影像 I/O 套件，包含JPEG, PNG, TIFF等所需套件
-sudo apt-get install libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev
+# 安裝影像 I/O 套件，包含JPEG, PNG, TIFF等所需套件
+   sudo apt-get install libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev
 
-//安裝 video I/O 所需套件，使用OpenCV載入video檔案
-sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
-sudo apt-get install libxvidcore-dev libx264-dev
+# 安裝 video I/O 所需套件，使用OpenCV載入video檔案
+   sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+   sudo apt-get install libxvidcore-dev libx264-dev
 
-//安裝 GTK 開發 library
-//這個 library用在建立使用者介面，並可以編譯 OpenCV的  highgui 子模組，才能顯示影像在畫面上。
-sudo apt-get install libgtk2.0-dev
+# 安裝 GTK 開發 library
+# 這個 library用在建立使用者介面，並可以編譯 OpenCV的  highgui 子模組，才能顯示影像在畫面上。
+   sudo  apt-get install libgtk2.0-dev
 
-//安裝各種不同的OpenCV如矩陣運作等的最佳化相依
-sudo apt-get install libatlas-base-dev gfortran
+# 安裝各種不同的OpenCV如矩陣運作等的最佳化相依
+   sudo apt-get install libatlas-base-dev gfortran
 
-//安裝 Python 2.7 開發工具
-sudo apt-get install python2.7-dev
-//*可以使用 python-V 指令檢查 Python 版本
+# 安裝 Python 2.7 開發工具
+   sudo apt-get install python2.7-dev
+      ## *可以使用 python-V 指令檢查 Python 版本
 
-//以上步驟是為了將之後會用到的相關套件安裝並更新到最新版本
+# 以上步驟是為了將之後會用到的相關套件安裝並更新到最新版本
 
-//=====================================================================
-//---下載 OpenCV---
-wget -O opencv-3.2.0.zip  https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.2.0/opencv-3.2.0.zip/download
-//*下載3.2.0版本
+# =====================================================================
+# ---下載 OpenCV---
+   wget -O opencv-3.2.0.zip  https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.2.0/opencv-3.2.0.zip/download
+   ## *下載3.2.0版本
 
-//將下載檔案解壓縮
-unzip opencv-3.2.0.zip
-//*使用 unzip 指令解壓縮
+# 將下載檔案解壓縮
+   unzip opencv-3.2.0.zip
+   ## *使用 unzip 指令解壓縮
 
-//進入解壓縮後的資料夾
-cd opencv-3.2.0/
+# 進入解壓縮後的資料夾
+   cd opencv-3.2.0/
 
-//=====================================================================
-//---安裝和設定 Python---
-//下載並安裝pip
-wget https://bootstrap.pypa.io/get-pip.py
-sudo python get-pip.py
+# =====================================================================
+# ---安裝和設定 Python---
+# 下載並安裝pip
+   wget https://bootstrap.pypa.io/get-pip.py
+   sudo python get-pip.py
 
-//安裝 virtualenv 及 virtualenvwrapper
-sudo pip install virtualenv virtualenvwrapper
-sudo rm -rf ~/.cache/pip      (?
+# 安裝 virtualenv 及 virtualenvwrapper
+   sudo pip install virtualenv virtualenvwrapper
+   sudo rm -rf ~/.cache/pip      (?
 
-//更新個人的資料檔 ~/.profile
-//在用戶主目錄下開啟終端機
-ls -a
-//*顯示隱藏的檔案
+# 更新個人的資料檔 ~/.profile
+# 在用戶主目錄下開啟終端機
+   ls -a
+   ## *顯示隱藏的檔案
 
-//編輯.profile檔案
-sudo gedit ~/.profile
-//*使用 gedit 編輯
+# 編輯.profile檔案
+   sudo gedit ~/.profile
+   ## *使用 gedit 編輯
 
 //將以下三行加到.profile檔案最後面
 # virtualenv and virtualenvwrapper
