@@ -15,7 +15,7 @@
 
 如果 ipython 無法順利移除 可以使用 sudo apt-get remove ipython 移除  
 
-*　## 啟動 Jupyter notebook  
+* ## 啟動 Jupyter notebook  
 `jupyter notebook`  
 
 **如果瀏覽器跳出 jupyter notebook 表示安裝成功**
