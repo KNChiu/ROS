@@ -3,20 +3,22 @@
 
 ## 安裝 Jupyter
 
-## 升级 pip
+* ## 升级 PIP  
 `sudo pip install --upgrade pip`
 
-## 檢查 python pip 版本
-python --version
-pip --version
+* ## 檢查 python pip 版本  
+`ython --version`  
+`pip --version`  
 
-## 使用 pip 安裝
-sudo pip install jupyter
-## *如果 ipython 無法順利移除 可以使用 sudo apt-get remove ipython 移除
+* ## 使用 pip 安裝  
+`sudo pip install jupyter`
 
-## 啟動 Jupyter notebook
-jupyter notebook
-## *如果瀏覽器跳出 jupyter notebook 表示安裝成功
+如果 ipython 無法順利移除 可以使用 sudo apt-get remove ipython 移除  
+
+*　## 啟動 Jupyter notebook  
+`jupyter notebook`  
+
+**如果瀏覽器跳出 jupyter notebook 表示安裝成功**
 
 
 
