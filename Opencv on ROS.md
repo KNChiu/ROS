@@ -18,8 +18,12 @@
 
 
 **路徑需要在 ~/catkinws/src 下**  
-格式: **[指令] [Package名稱] [depend1] [depend2] [depend3]**  
-支援的函式庫: **stdmsgs rospy roscpp**
+
+格式:  
+**[指令] [Package名稱] [depend1] [depend2] [depend3]**  
+
+支援的函式庫:  
+**stdmsgs rospy roscpp**
 
 
 
