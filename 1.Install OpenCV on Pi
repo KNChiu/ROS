@@ -75,36 +75,36 @@ sudo apt-get upgrade
    sudo gedit ~/.profile
    ## *使用 gedit 編輯
 
-//將以下三行加到.profile檔案最後面
+# 將以下三行加到.profile檔案最後面
 # virtualenv and virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
-//重新載入個人的 .profile
+# 重新載入個人的 .profile
 source ~/.profile
 
-//為 Python 建立一個名為 cv 的虛擬環境
+# 為 Python 建立一個名為 cv 的虛擬環境
 mkvirtualenv cv
-//*注意一定要先重新載入個人的 .profile
+# *注意一定要先重新載入個人的 .profile
 
-//安裝NumPy 
+# 安裝NumPy 
 pip install numpy
 
-//=====================================================================
-//---編譯並安裝 OpenCV---
-//啟動虛擬環境
+# =====================================================================
+# ---編譯並安裝 OpenCV---
+# 啟動虛擬環境
 workon cv
-//*注意一定要先重新載入個人的 .profile
+# *注意一定要先重新載入個人的 .profile
 
-//建立編譯程式環境
+# 建立編譯程式環境
 cd ~/opencv-3.2.0/
-//*進入下載的資料夾
+# *進入下載的資料夾
 
-//建立 build 資料夾 並進入
+# 建立 build 資料夾 並進入
 mkdir build
 cd build
 
-//輸入
+# 輸入
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
    -D CMAKE_INSTALL_PREFIX=/usr/local \
    -D BUILD_NEW_PYTHON_SUPPORT=ON \
@@ -112,28 +112,28 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
    -D INSTALL_PYTHON_EXAMPLES=ON \
    -D BUILD_EXAMPLES=ON ..
    
-//開始編譯 OpenCV
+# 開始編譯 OpenCV
 make -j2
-//*注意不要使用全核心(4核心)因為溫度會過高，這邊使用2核心進行編譯
+# *注意不要使用全核心(4核心)因為溫度會過高，這邊使用2核心進行編譯
 
-//=====================================================================
-//---結束安裝---
-//進入資料夾裡檢查編譯完成產生的 cv2.so 檔案
+# =====================================================================
+# ---結束安裝---
+# 進入資料夾裡檢查編譯完成產生的 cv2.so 檔案
 cd ~/.virtualenvs/cv/lib/python2.7/site-packages/
 
-//將這個檔案建立連結到 cv 的虛擬環境
+# 將這個檔案建立連結到 cv 的虛擬環境
 ln -s /usr/local/lib/python2.7/site-packages/cv2.so cv2.so       (?
 
-//=====================================================================
-//---確認是否已安裝完成---
+# =====================================================================
+# ---確認是否已安裝完成---
 workon cv
 python
 >>> import cv2
 >>> cv2.__version__
-//*如果有正確出現OpenCV的版本，就表示安裝成功
+# *如果有正確出現OpenCV的版本，就表示安裝成功
 
 
-//以上為OpenCV的安裝步驟
+# 以上為OpenCV的安裝步驟
 
 
 
